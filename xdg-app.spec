@@ -1,26 +1,28 @@
 Summary:	Application deployment framework for desktop apps
 Summary(pl.UTF-8):	Szkielet do wdrażania aplikacji desktopowych
 Name:		xdg-app
-Version:	0.3.6
+Version:	0.4.4
 Release:	1
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	3bc835b96b8f2d5652c45bb7d2ef7ade
+# Source0-md5:	ac4de5bc86e964f277c9bbd0b07912bc
 URL:		https://wiki.gnome.org/Projects/SandboxedApps
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl
-BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	glib2-devel >= 1:2.45.8
+BuildRequires:	libarchive-devel >= 2.8.0
 BuildRequires:	libgsystem-devel >= 2015.1
 BuildRequires:	libseccomp-devel
 BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libxslt-progs
-BuildRequires:	ostree-devel >= 2015.3
+BuildRequires:	ostree-devel >= 2015.6
 BuildRequires:	pkgconfig >= 1:0.24
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xz
 Requires:	libgsystem >= 2015.1
-Requires:	ostree >= 2015.3
+Requires:	ostree >= 2015.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,8 +68,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xdg-app-helper
 %attr(755,root,root) %{_libexecdir}/xdg-app-session-helper
 %attr(755,root,root) %{_libexecdir}/xdg-dbus-proxy
+%attr(755,root,root) %{_libexecdir}/xdg-document-portal
 %attr(755,root,root) /etc/profile.d/xdg-app.sh
 %{_datadir}/dbus-1/services/xdg-app-session.service
+%{_datadir}/dbus-1/services/org.freedesktop.portal.Documents.service
 %{_datadir}/gdm/env.d/xdg-app.env
 %{_datadir}/xdg-app
 %{_mandir}/man1/xdg-app*.1*
