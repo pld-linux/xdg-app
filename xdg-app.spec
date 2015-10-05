@@ -2,7 +2,7 @@ Summary:	Application deployment framework for desktop apps
 Summary(pl.UTF-8):	Szkielet do wdrażania aplikacji desktopowych
 Name:		xdg-app
 Version:	0.4.4
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
@@ -72,7 +72,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /etc/profile.d/xdg-app.sh
 %{_datadir}/dbus-1/services/xdg-app-session.service
 %{_datadir}/dbus-1/services/org.freedesktop.portal.Documents.service
-%{_datadir}/gdm/env.d/xdg-app.env
+# not supported by PLD gdm (yet?)
+#%{_datadir}/gdm/env.d/xdg-app.env
 %{_datadir}/xdg-app
 %{_mandir}/man1/xdg-app*.1*
 
