@@ -1,17 +1,18 @@
 Summary:	Application deployment framework for desktop apps
 Summary(pl.UTF-8):	Szkielet do wdrażania aplikacji desktopowych
 Name:		xdg-app
-Version:	0.4.4
-Release:	2
+Version:	0.4.5
+Release:	1
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	ac4de5bc86e964f277c9bbd0b07912bc
+# Source0-md5:	ffcb6457cf1595a5a6eacebd7262acb2
 URL:		https://wiki.gnome.org/Projects/SandboxedApps
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	glib2-devel >= 1:2.45.8
 BuildRequires:	libarchive-devel >= 2.8.0
+BuildRequires:	libfuse-devel
 BuildRequires:	libgsystem-devel >= 2015.1
 BuildRequires:	libseccomp-devel
 BuildRequires:	libsoup-devel >= 2.4
@@ -70,6 +71,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/xdg-dbus-proxy
 %attr(755,root,root) %{_libexecdir}/xdg-document-portal
 %attr(755,root,root) /etc/profile.d/xdg-app.sh
+%{_datadir}/dbus-1/interfaces/org.freedesktop.XdgApp.xml
+%{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Documents.xml
 %{_datadir}/dbus-1/services/xdg-app-session.service
 %{_datadir}/dbus-1/services/org.freedesktop.portal.Documents.service
 # not supported by PLD gdm (yet?)
