@@ -5,12 +5,12 @@
 Summary:	Application deployment framework for desktop apps
 Summary(pl.UTF-8):	Szkielet do wdrażania aplikacji desktopowych
 Name:		xdg-app
-Version:	0.4.6
-Release:	2
+Version:	0.4.8
+Release:	1
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	81e7f737c4575bf94da170d780bac492
+# Source0-md5:	bca0c40827c556578e24cabe1295da47
 URL:		https://wiki.gnome.org/Projects/SandboxedApps
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl
@@ -26,6 +26,7 @@ BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libxslt-progs
 BuildRequires:	ostree-devel >= 2015.6
 BuildRequires:	pkgconfig >= 1:0.24
+BuildRequires:	rpmbuild(macros) >= 1.682
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libXau-devel
 BuildRequires:	xz
@@ -109,7 +110,6 @@ Bashowe uzupełnianie parametrów polecenia xdg-app.
 
 %build
 %configure \
-	--enable-libxdgapp \
 	--disable-silent-rules \
 	%{?with_static_libs:--enable-static} \
 	--with-html-dir=%{_gtkdocdir}
@@ -142,8 +142,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /etc/profile.d/xdg-app.sh
 %{_datadir}/dbus-1/interfaces/org.freedesktop.XdgApp.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.portal.Documents.xml
-%{_datadir}/dbus-1/services/xdg-app-session.service
+%{_datadir}/dbus-1/services/org.freedesktop.XdgApp.service
 %{_datadir}/dbus-1/services/org.freedesktop.portal.Documents.service
+%{systemduserunitdir}/xdg-app-session-helper.service
+%{systemduserunitdir}/xdg-document-portal.service
 # not supported by PLD gdm (yet?)
 #%{_datadir}/gdm/env.d/xdg-app.env
 %{_datadir}/xdg-app
