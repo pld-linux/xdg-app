@@ -5,12 +5,12 @@
 Summary:	Application deployment framework for desktop apps
 Summary(pl.UTF-8):	Szkielet do wdrażania aplikacji desktopowych
 Name:		xdg-app
-Version:	0.4.8
+Version:	0.4.12
 Release:	1
 License:	LGPL v2+
 Group:		Applications
-Source0:	http://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	bca0c40827c556578e24cabe1295da47
+Source0:	https://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
+# Source0-md5:	3e42e6c777eb67da8410549941be2243
 URL:		https://wiki.gnome.org/Projects/SandboxedApps
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl
