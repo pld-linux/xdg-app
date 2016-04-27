@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
-#
+
 Summary:	Application deployment framework for desktop apps
 Summary(pl.UTF-8):	Szkielet do wdrażania aplikacji desktopowych
 Name:		xdg-app
 Version:	0.5.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Applications
 Source0:	https://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
@@ -87,6 +87,9 @@ Biblioteka statyczna xdg-app.
 Summary:	API documentation for xdg-app library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki xdg-app
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for xdg-app library.
@@ -178,4 +181,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n bash-completion-xdg-app
 %defattr(644,root,root,755)
-%{_datadir}/bash-completion/completions/xdg-app
+%{bash_compdir}/xdg-app
