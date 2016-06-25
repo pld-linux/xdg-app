@@ -1,3 +1,4 @@
+# NOTE: xdg-app is obsolete, see flatpak.spec for versions >= 0.6.0
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
@@ -6,7 +7,7 @@ Summary:	Application deployment framework for desktop apps
 Summary(pl.UTF-8):	Szkielet do wdrażania aplikacji desktopowych
 Name:		xdg-app
 Version:	0.5.2
-Release:	1
+Release:	1.1
 License:	LGPL v2+
 Group:		Applications
 Source0:	https://www.freedesktop.org/software/xdg-app/releases/%{name}-%{version}.tar.xz
