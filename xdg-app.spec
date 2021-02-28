@@ -88,9 +88,7 @@ Biblioteka statyczna xdg-app.
 Summary:	API documentation for xdg-app library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki xdg-app
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for xdg-app library.
